@@ -1,0 +1,187 @@
+/* Dark theme. Change these values to re-theme the page. */
+:root {
+  --page: #0c0d10;
+  --card: #14161b;
+  --line: #272b33;
+  --ink: #eceff3;
+  --muted: #8a919c;
+  --accent: #5be37d;
+  --accent-dark: #3fc662;
+  --on-accent: #07140b;
+  --screen: #17191d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 560px;
+  padding: 32px 20px 48px;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  margin: 8px 0 20px;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h2 { margin: 0 0 12px; font-size: 1.25rem; font-weight: 700; }
+p { margin: 0 0 14px; }
+.hidden { display: none !important; }
+
+/* Tabs */
+.tabs {
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding: 4px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.tabs button {
+  padding: 9px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tabs button:hover { color: var(--ink); }
+.tabs button.active { background: var(--accent); color: var(--on-accent); }
+
+/* Cards */
+section {
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+/* Buttons */
+button { font: inherit; font-weight: 600; cursor: pointer; }
+
+section button {
+  padding: 9px 18px;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid #3a404a;
+  border-radius: 10px;
+  transition: transform 0.1s, background 0.15s, border-color 0.15s;
+}
+
+section button:hover { background: #1e222a; border-color: #566070; }
+section button:active { transform: translateY(1px); }
+
+#btn-start,
+#btn-compress {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+#btn-start:hover,
+#btn-compress:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+button:focus-visible,
+input:focus-visible { outline: 3px solid #6aa8ff; outline-offset: 2px; }
+
+/* Snake */
+#score, #high-score {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#snake-canvas {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto 16px;
+  background: var(--screen);
+  border: 2px solid #2d323b;
+  border-radius: 14px;
+  box-shadow: 0 0 0 6px #0c0d10, 0 0 0 7px var(--line), 0 0 48px rgba(91, 227, 125, 0.12);
+}
+
+#snake-section p:last-child { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+/* File Zipper */
+input[type="file"] {
+  width: 100%;
+  padding: 20px 14px;
+  background: #0f1115;
+  border: 2px dashed #343a44;
+  border-radius: 12px;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+input[type="file"]:hover { border-color: var(--accent); }
+
+input[type="file"]::file-selector-button {
+  margin-right: 14px;
+  padding: 8px 14px;
+  background: var(--ink);
+  border: 0;
+  border-radius: 8px;
+  color: #0c0d10;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#zip-download:empty { display: none; }
+
+#zip-download a {
+  display: inline-block;
+  padding: 9px 16px;
+  background: rgba(91, 227, 125, 0.12);
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#zip-download a:hover { background: rgba(91, 227, 125, 0.22); }
+
+#zip-result {
+  margin: 0;
+  padding: 16px;
+  min-height: 3.5rem;
+  background: #07080a;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: #b9f0c6;
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  section { padding: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
